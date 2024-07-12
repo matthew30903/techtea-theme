@@ -29,6 +29,11 @@ a:visited {
 code{
   background-color: var(--bkg-color);
   color: var(--code-color);
+  
+}
+pre {
+  overflow: auto; 
+ 
 }
 
 .left-sidebar{
