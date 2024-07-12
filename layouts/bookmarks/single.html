@@ -1,0 +1,42 @@
+{{ define "main" -}}
+
+<div class="info">
+  <h1 class="post-title p-name">
+      <a href="{{ .Permalink }}" class="u-url">{{ .Title }}</a>
+  </h1>
+
+  <div class="headline">
+      <div>
+        {{ if .Date }}
+        <time datetime="{{ .Date.Format " 2006-01-02T15:04:05Z0700" }}" class="post-date dt-published">
+          {{ .Date.Format "January 2, 2006" }}
+        </time>
+        {{ end }}
+        |
+        <span>
+          {{ if gt .ReadingTime 1 }}
+            {{ .Scratch.Set "readingTime" "mins" }}
+          {{ else }}
+            {{ .Scratch.Set "readingTime" "min" }}
+          {{ end }}
+  
+          <span>{{.Params.link_author}} | Link: <a href="{{.Params.link}}">{{.Params.link}}</a></span>
+        </span>
+      </div>
+  </div>
+</div>
+
+<div class="e-content">
+    <div class="h-entry">
+      {{ .Content }}
+    </div>
+
+</div>
+{{ partial "post/navigation.html" . }}
+
+</article>
+{{- end }}
+{{ define "sidebar" }}
+  {{ partial "table_of_contents.html" . }}
+{{ end }}
+

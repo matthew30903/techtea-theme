@@ -1,0 +1,15 @@
+name = 'TechTea'
+license = 'GPL-3.0 license'
+licenselink = 'https://github.com/matthew30903/techtea-theme/LICENSE'
+description = 'Theme for the TechTea.io Website.'
+
+# The home page of the theme, where the source can be found
+homepage = 'https://github.com/matthew30903/techtea-theme'
+
+# Taxonomy terms
+tags = ['blog']
+
+# If the theme has a single author
+[author]
+  name = 'Matthew'
+  homepage = 'techtea.io'

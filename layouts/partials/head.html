@@ -1,0 +1,22 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+<!-- Request AI to not view content  -->
+<meta name="robots" content="noai, noimageai">
+
+<meta name="color-scheme" content="light dark">
+
+<!-- favicon -->
+<link rel="icon" href={{ .Site.Params.favicon | default "/favicon.png" }}>
+
+<!-- Add Webmentions Support -->
+<link rel="webmention" href="https://webmention.io/techtea.io/webmention">
+
+<!-- Add JSON Feed Support -->
+<link
+  href="{{ with .OutputFormats.Get "jsonfeed"  }}{{ .Permalink }}{{ end }}"
+  rel="alternate" type="application/json" title="{{ .Site.Title }}">
+
+<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
+{{ partialCached "head/css.html" . }}
+

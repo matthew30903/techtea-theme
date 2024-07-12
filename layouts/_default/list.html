@@ -1,0 +1,19 @@
+{{ define "main" }}
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+  <ul class="entries">
+    {{ range .Pages.GroupByDate "2006" }}
+        <h2 style="text-align: center;">{{ .Key }}</h2>
+        {{ range .Pages }}
+            <li>
+                <span class="title">
+                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                </span>
+                <span class="published">
+                    <time>{{ .Date | time.Format ":date_long" }}</time>
+                </span>
+            </li>
+        {{ end }}
+    {{ end }}
+</ul>
+{{ end }}

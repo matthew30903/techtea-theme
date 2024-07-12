@@ -1,0 +1,16 @@
+
+{{ if .Params.temperature }}
+<li>Brew Temperature {{ partial "svg.html" "temperature-half" }}: {{ .Params.temperature }}</li>
+{{ end }}
+
+{{ if .Params.brewtime }}
+<li>Brew Time {{ partial "svg.html" "clock" }}: {{ .Params.brewtime }}</li>
+{{ end }}
+
+{{ if .Params.teas }}
+<li>Type of Tea: 
+  {{ range .Params.teas }} 
+    <a href="{{ "teas/" | absLangURL }}{{ . | urlize }}" rel="tea">{{ . }}</a>
+  {{ end }}
+</li>
+{{ end }}

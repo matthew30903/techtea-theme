@@ -1,0 +1,6 @@
+<div class="sidebar-hearder">
+    {{ partial "light_dark.html" }} <h1>{{ site.Title }}</h1>
+</div>
+{{ site.Params.description }}
+
+{{ partial "menu.html" (dict "menuID" "main" "page" .) }}

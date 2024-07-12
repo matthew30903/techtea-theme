@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="{{ or site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}">
+<head>
+  {{ partial "head.html" . }}
+</head>
+<body class="main-grid">
+  <header class="header">
+    
+  </header >
+  <main class="main-content">
+    {{ block "main" . }}{{ end }}
+    <div class="post-footer">
+      <p>Thoughts, comments, or just wanting to talk? Feel free to reach out to me via <a href="mailto:hello@mattlamont.com">email</a>.</p>
+      <p>Like what you see here, please consider supporting me on <a href="https://ko-fi.com/techtea">Ko-Fi</a> It is only $1/month and helps a lot.</p>
+    </div>
+    <hr>
+    {{ partial "h-card.html" . }}
+  </main>
+  <section class="left-sidebar">
+    {{ partial "header.html" . }}
+  </section>
+
+  <aside class="right-sidebar">
+    {{ .TableOfContents }}
+  </aside>
+
+  <footer class="footer">
+    {{ partial "footer.html" . }}
+  </footer>
+</body>
+</html>

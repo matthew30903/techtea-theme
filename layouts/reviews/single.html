@@ -1,0 +1,50 @@
+{{ define "main" -}}
+<article class="post h-entry ">
+  {{ partial "post/info.html" . }}
+  <h2>Info</h2>
+  <div class="review-summary">
+    {{ if .Params.affiliate }}
+      <p>Note: This post contains affiliate links. If you click on the link and purchase something I will get a small commission. This doesn't cost you anything and helps support my writing.</p>
+    {{ end}}
+
+    {{ if .Params.brands }}
+      <li>Brand: <a href="{{ "brands/" | absLangURL }}{{ .Params.brands | urlize }}" rel="brands">{{ .Params.brands  }}</a> </li>
+    {{ end }}
+
+    {{ if .Params.price }}
+      <li>Price: {{ .Params.price }}</li>
+    {{ end }}
+    
+    {{ if .Params._weight }}
+      <li>Weight: {{ .Params._weight }}</li>
+    {{ end }}
+
+    {{ if eq .Params.review_type "Tea"}}
+      {{ partial "reviews/tea_review_template.html" . }}
+    {{end}}
+    
+    {{ if .Params.rating }}
+      <p>Rating: <span class="Stars" style="--rating: {{.Params.rating}};" aria-label="Rating of this product is {{ .Params.rating }} out of 5."></span></p>
+    {{ end }}
+
+    {{ if .Params.location_obtained }}
+      <p>Where I got it: {{ .Params.location_obtained }}</p>
+    {{ end }}
+
+    {{ if .Params.description }}
+      <p class="review-description">{{ .Params.description }}</p>
+    {{ end }}
+  </div>
+
+
+  <div class="e-content">
+    {{ .Content }}
+  </div>
+  {{ partial "post/navigation.html" . }}
+
+</article>
+{{- end }}
+{{ define "sidebar" }}
+  {{ partial "table_of_contents.html" . }}
+{{ end }}
+

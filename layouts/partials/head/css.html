@@ -1,0 +1,42 @@
+<style>
+  body {
+
+      --text-color: {{ with .Site.Params.text_color }}{{ . }}{{ else }}#222{{ end }};
+      --bkg-color: {{ with .Site.Params.content_bg_color }}{{ . }}{{ else }}#FAF9F6{{ end }};
+      --link-color: {{ with .Site.Params.link_color }}{{ . }}{{ else }}#268bd2{{ end }};
+      --code-color: {{ with .Site.Params.code_color }}{{ . }}{{ else }}#000{{ end }};
+      --code-background-color: {{ with .Site.Params.code_background_color }}{{ . }}{{ else }}#E5E5E5{{ end }};
+      --code-block-color: {{ with .Site.Params.code_block_color }}{{ . }}{{ else }}#fff{{ end }};
+      --code-block-background-color: {{ with .Site.Params.code_block_background_color }}{{ . }}{{ else }}#272822{{ end }};
+      --tag-link-color: {{ with .Site.Params.tag_link_color }}{{ . }}{{ else }}#222{{ end }};
+      --tag-bkg-color: {{ with .Site.Params.tag_bkg_color }}{{ . }}{{ else }}#a8bbe4{{ end }};
+      --moon-sun-color: {{ with .Site.Params.light_dark_button_color }}{{ . }}{{ else }}#FFF{{ end }};
+      --moon-sun-background-color: {{ with .Site.Params.light_dark_button_bkg_color }}{{ . }}{{ else }}#515151{{ end }};
+
+    }
+  body.dark-theme {
+      --text-color: {{ with .Site.Params.text_color_dark }}{{ . }}{{ else }}#eee{{ end }};
+      --bkg-color: {{ with .Site.Params.content_bg_color_dark }}{{ . }}{{ else }}#121212{{ end }};
+      --link-color: {{ with .Site.Params.link_color_dark }}{{ . }}{{ else }}#268bd2{{ end }};
+      --code-color: {{ with .Site.Params.code_color_dark }}{{ . }}{{ else }}#fff{{ end }};
+      --code-background-color: {{ with .Site.Params.code_background_color_dark }}{{ . }}{{ else }}#515151{{ end }};
+      --code-block-color: {{ with .Site.Params.code_block_color_dark }}{{ . }}{{ else }}#fff{{ end }};
+      --code-block-background-color: {{ with .Site.Params.code_block_background_color_dark }}{{ . }}{{ else }}#272822{{ end }};
+      --tag-link-color: {{ with .Site.Params.tag_link_color_dark }}{{ . }}{{ else }}#222{{ end }};
+      --tag-bkg-color: {{ with .Site.Params.tag_bkg_color_dark }}{{ . }}{{ else }}#a8bbe4{{ end }};
+  }
+
+</style>
+
+
+
+{{- with resources.Get "css/main.css" }}
+  {{- if eq hugo.Environment "development" }}
+    <link rel="stylesheet" href="{{ .RelPermalink }}">
+  {{- else }}
+    {{- with . | minify | fingerprint }}
+      <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+    {{- end }}
+  {{- end }}
+{{- end }}
+

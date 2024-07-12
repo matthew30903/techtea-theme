@@ -1,0 +1,60 @@
+{{ define "main" -}}
+
+{{ .Content }}
+<div class="homepage-posts">
+    <article class="homepage-articles">
+        <h2>Articles: </h2>
+        {{ range (where .Site.RegularPages "Type" "in" (slice "articles" )) | first 5 }}
+            <li>
+                {{ partial "svg.html" "book" }}
+            <span class="title">
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            </span>
+
+            </li>
+        {{- end }}
+        <a href="/articles">Read More...</a>
+    </article>
+
+    <article class="homepage-articles">
+        <h2>Notes: </h2>
+        {{ range (where .Site.RegularPages "Type" "in" ("notes")) | first 5 }}
+        <li>
+            {{ partial "svg.html" "sticky-note" }}
+            <span class="title">
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            </span>
+        </li>
+        {{- end }}
+        <a href="/notes">Read More...</a>
+    </article>
+
+    <article class="homepage-articles">
+        <h2>Reviews: </h2>
+        {{ range (where .Site.RegularPages "Type" "in" ("reviews")) | first 5 }}
+            <li>
+                {{ partial "svg.html" "star-half-stroke" }}
+                <span class="title">
+                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                </span>
+
+            </li>
+        {{- end }}
+        <a href="/reviews">Read More...</a>
+    </article>
+
+    <article class="homepage-articles">
+        <h2>Bookmarks: </h2>
+        {{ range (where .Site.RegularPages "Type" "in" ("bookmarks")) | first 5 }}
+            <li>
+                {{ partial "svg.html" "bookmark" }}
+                <span class="title">
+                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                </span>
+
+            </li>
+        {{- end }}
+        <a href="/bookmarks">Read More...</a>
+    </article>
+</div>
+{{- end }}
