@@ -1,5 +1,7 @@
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width">
+
+<!-- Enable responsiveness on mobile devices-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- Request AI to not view content  -->
 <meta name="robots" content="noai, noimageai">
@@ -18,5 +20,10 @@
   rel="alternate" type="application/json" title="{{ .Site.Title }}">
 
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
+
+    <!-- META -->
+    {{ partial "head/meta.html" . }}
+
+
 {{ partialCached "head/css.html" . }}
 
