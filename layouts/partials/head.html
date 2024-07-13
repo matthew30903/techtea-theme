@@ -21,8 +21,8 @@
 
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
 
-    <!-- META -->
-    {{ partial "head/meta.html" . }}
+<!-- META -->
+{{ partial "head/meta.html" . }}
 
 
 {{ partialCached "head/css.html" . }}
