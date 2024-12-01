@@ -43,18 +43,5 @@
         <a href="/reviews">Read More...</a>
     </article>
 
-    <article class="homepage-articles">
-        <h2>Bookmarks: </h2>
-        {{ range (where .Site.RegularPages "Type" "in" ("bookmarks")) | first 5 }}
-            <li>
-                {{ partial "svg.html" "bookmark" }}
-                <span class="title">
-                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-                </span>
-
-            </li>
-        {{- end }}
-        <a href="/bookmarks">Read More...</a>
-    </article>
 </div>
 {{- end }}
