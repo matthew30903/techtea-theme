@@ -203,10 +203,14 @@ pre {
 /* Home Page Layout */
 
 .homepage-posts {
-
   display:flex;
   flex-wrap:wrap;
   list-style-type: none;
+}
+
+.homepage-posts li{
+
+ margin-bottom: 8px;
 }
 
 .homepage-posts > * {
