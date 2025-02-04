@@ -1,6 +1,9 @@
 {{ define "main" }}
 {{ partial "post/info.html" . }}
-  {{ .Content }}
+  <article>
+    {{ .Content }}
+  </article>
+  
 
   {{ partial "post/navigation.html" . }}
 
