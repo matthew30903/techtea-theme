@@ -5,19 +5,22 @@
     {{ .Content }}
     <div class="gallery">
       {{ range .Resources.Match "img/*.webp" }}
+
+      {{ $file := strings.TrimSuffix (path.Ext .RelPermalink) .RelPermalink }}
+
       <div class="gallery-item">
-        <a href="{{ .RelPermalink }}">
+        <a href="{{ $file }}.jpeg">
         <figure>
-           <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="" >
+          <picture>
+            <source srcset="{{ $file }}.webp"/>
+            <img src="{{ $file }}.jpeg" width="{{ .Width }}" height="{{ .Height }}" alt="" >
+          </picture>
         </figure>
        </a>
       </div> 
   
       {{ end }}
-
     </div>
-    
-
   </article>
 
   {{ partial "post/navigation.html" . }}
