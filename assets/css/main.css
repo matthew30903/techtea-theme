@@ -287,3 +287,31 @@ img {
 body.dark-theme img {
   filter: brightness(.8) contrast(1.2);
 }
+
+/* Gallery container */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 3px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* Individual image styling */
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+}
+.gallery-item {
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.gallery-item figure {
+  display: block;
+  position: relative;
+  float: left;
+  overflow: hidden;
+  margin: 0 20px 20px 0;
+}

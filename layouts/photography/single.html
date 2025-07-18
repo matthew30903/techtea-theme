@@ -1,0 +1,25 @@
+{{ define "main" }}
+{{ partial "post/info.html" . }}
+
+  <article>
+    {{ .Content }}
+    <div class="gallery">
+      {{ range .Resources.Match "img/*.webp" }}
+      <div class="gallery-item">
+        <a href="{{ .RelPermalink }}">
+        <figure>
+           <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="" >
+        </figure>
+       </a>
+      </div> 
+  
+      {{ end }}
+
+    </div>
+    
+
+  </article>
+
+  {{ partial "post/navigation.html" . }}
+
+{{ end }}
