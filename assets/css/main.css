@@ -189,8 +189,8 @@ pre {
 .p-author{
   display: flex;
   flex-direction: row;
+  align-items: center;
   flex: auto;
-  padding-top: 5px;
 }
 
 .u-photo{
