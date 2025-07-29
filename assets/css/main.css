@@ -194,9 +194,9 @@ pre {
 }
 
 .u-photo{
-  max-width: 10%;
+  max-width: 100px;
   margin-right: 5px;
-  aspect-ratio: 1/1;
+  max-height: 100px;
 }
 
 
