@@ -8,7 +8,7 @@
 
     <h2>Blogs</h2>
     <ul>
-      {{ range sort .Site.Data.blogroll.blogs "Name" }}
+      {{ range sort hugo.Data.blogroll.blogs "Name" }}
         <li>
           {{ .Name }} <a href="{{ .Website }}"><span hidden="true">Website</span>{{ partial "svg.html" "globe" }}</a> <a href="{{ .RSS }}"><span hidden="true">RSS</span>{{ partial "svg.html" "rss" }}</a>
           <p>{{ .Description}}</p>
